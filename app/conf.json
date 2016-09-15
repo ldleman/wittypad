@@ -1,0 +1,13 @@
+{
+	"name": "DayDream",
+    "version": "0.0.1",
+	"licence": {
+		"name" : "CC by-nc-sa 3.0",
+		"url" : "https://creativecommons.org/licenses/by-nc-sa/3.0/fr/"
+	},
+    "author": {
+        "name": "idleman",
+        "mail": "idleman@idleman.fr",
+		"website" : "idleman.fr"
+    }
+}
