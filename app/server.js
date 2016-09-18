@@ -62,7 +62,7 @@ app = new Application();
 
 
 for(var key in pluginDir)
-	 require('./plugins/'+pluginDir[key]+'/main.js').init();
+	 require('./plugins/'+pluginDir[key]+'/main.js').init(app);
 
 app.on('save',function(data){
 	if($('#editor').attr('data-file') != "" ){
