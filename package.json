@@ -1,11 +1,11 @@
 {
-  "name": "daydream",
+  "name": "wittypad",
   "main": "app/index.html",
   "window": {
-    "title": "DayDream V1.0",
+    "title": "WittyPad V1.0",
     "width": 1200,
     "height": 700,
-    "toolbar": true,
+    "toolbar": false,
     "icon": "app/icon.png",
     "position": "center",
     "min_width": 300,

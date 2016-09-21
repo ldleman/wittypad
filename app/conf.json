@@ -1,6 +1,7 @@
 {
 	"name": "DayDream",
     "version": "0.0.1",
+	"debug": true,
 	"licence": {
 		"name" : "CC by-nc-sa 3.0",
 		"url" : "https://creativecommons.org/licenses/by-nc-sa/3.0/fr/"

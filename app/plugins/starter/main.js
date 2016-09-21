@@ -1,7 +1,7 @@
-var dir =  __dirname.replace(/\\/g, "/");  
-module.exports = {
- 
 
+module.exports =  {
+	
+ 
   starts  :  
   [
 	"L’airbus 5403 Istanbul-Paris décrocha",
@@ -21,24 +21,19 @@ module.exports = {
 	var starter = this;
 	console.log('starter loaded...');
 	//Sur l'evenement de lancement
-	app.on('load',function(){
-		
+	app.on('new',function(){
 		console.log('load : start');
 		var startText = rand(starter.starts);
 		startText = startText.replace(/^[^a-zA-Z]*([a-zA-Z])/g, '<span style="font-weight:bold;font-size:24px;">$1</span>');
-		
 		$('#editor').html(startText);
-
-
 	},'starter');
 	
 	
   }
 
-  
- 
 
 };
+
 function rand(array) {
 	return array[Math.floor(Math.random()*array.length)];
 }
