@@ -22,6 +22,20 @@ module.exports = function Application() {
 		$('head').append("<link rel='stylesheet' type='text/css' href='"+url+"'>");
 	};
 	
+	this.addPage = function(data){
+		var data = $.extend({
+			id : '0',
+			title : 'Sans titre',
+			icon : 'fa-file-o',
+			html : ''
+		},data);
+	
+		$('#tabs > li:eq(0)').append('<li data-tab="'+data.id+'"><i class="fa '+data.icon+'"></i> '+data.title+'</li>');
+		var page = $('<div style="display:none;padding:15px;" id="'+data.id+'">'+data.html+'</div>');
+		$('#pages').append(page);
+		return page;
+	};
+	
 	this.browse = function(data,callback){
 		var chooser = $('#fileDialog');
 		var attr = {

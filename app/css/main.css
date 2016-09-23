@@ -1,15 +1,69 @@
+html,body{
+	margin:0;
+	padding:0;
+}
+
+ul{
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+
 body {
   font-family: 'Calibri',Arial,Verdana;
   transition : all linear 0.2s;
   font-size:20px;
+  padding-bottom:20px;
 }
 h1,h2,h3,h4,h5{
   font-family: 'Dosis';
 }
 a {
-  cursor: pointer;
+  color:#3D5577;
 }
 
+#footer{
+	width:100%;
+	text-align:center;
+	position:fixed;
+	height:20px;
+	bottom:0px;
+	color:#cecece;
+}
+#pluginList{
+	
+}
+#pluginList li{
+	border-bottom:1px solid #cecece;
+	padding:15px;
+}
+#pluginList li h1{
+	display:inline-block;
+	font-size:20px;
+	margin-bottom:5px;
+	color:#222222;
+}
+#pluginList li small,#pluginList li p{
+	display:inline-block;
+	font-size:14px;
+	color:#cecece;
+}
+#pluginList li label,#pluginList li i{
+	float:right;
+	margin-left:15px;
+}
+#pluginList li p{
+	display:block;
+	margin:5px 0;
+	color:#ADADAD;
+	font-size:20px;
+}
+#pluginList li i{
+	cursor:pointer;
+}
+#pluginList li a{
+	text-decoration:underline;
+}
 #editor {
   background-color : #ffffff;
   min-height: 150px;
@@ -24,105 +78,48 @@ a {
 
 #tabs li{
   display:inline-block;
-  padding:5px;
+  padding:20px;
   list-style-type: none;
-  color:#2592E0;
+  color:#222222;
   font-family: 'Dosis';
   font-size: 20px;
   cursor: pointer;
+  transition:color 0.2s linear,background 0.2s linear;
 }
 
+#tabs li:hover{
+	background:#3D5577;
+	color:#ffffff;
+}
 
 .toolbar {
   text-align: center;
   width: 100%;
-  margin: 20px auto;
+
+  background:#3D5577;
+  list-style-type:none;
+}
+.toolbar li{
+	display:inline-block;
+	padding:10px;
+	cursor:pointer;
+	font-size:24px;
+	background:#3D5577;
+	color:#cecece;
+	transition:color 0.2s linear,background 0.2s linear;
+}
+.toolbar li.separator{
+	background:none;
+	padding:2px;
 }
 
-.toolbar a,
-.fore-wrapper,
-.back-wrapper {
-  border: 1px solid #AAA;
-  background: #FFF;
-  font-family: 'Candal';
-  border-radius: 1px;
-  color: black;
-  padding: 5px;
-  width: 1.5em;
-  margin: -2px;
-  margin-top: 10px;
-  display: inline-block;
-  text-decoration: none;
-  box-shadow: 0px 1px 0px #CCC;
+.toolbar li:hover{
+	color:#ffffff;
+	background:#4F6C93;
 }
 
-.toolbar a:hover,
-.fore-wrapper:hover,
-.back-wrapper:hover {
-  background: #f2f2f2;
-  border-color: #8c8c8c;
+.clear{
+	clear:both;
 }
 
-a[data-command='redo'],
-a[data-command='strikeThrough'],
-a[data-command='justifyFull'],
-a[data-command='insertOrderedList'],
-a[data-command='outdent'],
-a[data-command='p'],
-a[data-command='superscript'] {
-  margin-right: 5px;
-  border-radius: 0 3px 3px 0;
-}
 
-a[data-command='undo'],
-.fore-wrapper,
-a[data-command='justifyLeft'],
-a[data-command='insertUnorderedList'],
-a[data-command='indent'],
-a[data-command='h1'],
-a[data-command='subscript'] {
-  border-radius: 3px 0 0 3px;
-}
-
-a.palette-item {
-  height: 1em;
-  border-radius: 3px;
-  margin: 2px;
-  width: 1em;
-  border: 1px solid #CCC;
-}
-
-a.palette-item:hover {
-  border: 1px solid #CCC;
-  box-shadow: 0 0 3px #333;
-}
-
-.fore-palette,
-.back-palette {
-  display: none;
-}
-
-.fore-wrapper,
-.back-wrapper {
-  display: inline-block;
-  cursor: pointer;
-}
-
-.fore-wrapper:hover .fore-palette,
-.back-wrapper:hover .back-palette {
-  display: block;
-  float: left;
-  position: absolute;
-  padding: 3px;
-  width: 160px;
-  background: #FFF;
-  border: 1px solid #DDD;
-  box-shadow: 0 0 5px #CCC;
-  height: 70px;
-}
-
-.fore-palette a,
-.back-palette a {
-  background: #FFF;
-  margin-bottom: 2px;
-}
