@@ -30,8 +30,10 @@ module.exports = {
 		//Fonction d'initialisation
    
 		var charactersPlugin = this;
+
 		app.css(dir+'/main.css');
-		
+
+	
 		//Sur l'evenement de lancement
 		app.on('load',function(data){
 			
@@ -41,43 +43,33 @@ module.exports = {
 				icon : 'fa-users',
 			});
 			
-			page.html('<h3 id="characterTitle">Personnages</h3><ul id="peoples"></ul>');
-			var btnAdd = $('<div class="btn"><i class="fa fa-plus"><i> Ajouter</div>');
-			$('#characterTitle').after(btnAdd);
-			btnAdd.click(function(){
+			page.html('<h3>Personnages</h3><ul id="peoples"></ul>');
 			
-				charactersPlugin.generateChararacter({gender:'female'},function(person){
-					var charBloc = '<li>';
-						charBloc += '<div class="personPicture" style="background:url('+person.picture.large+') no-repeat center center;"></div>';
-						charBloc += '<h1>'+person.name.first+" "+person.name.last.toUpperCase()+'</h1>';
-						charBloc += '</li>';
-						$('#peoples').append(charBloc);
-						console.log(person);
-				});
-			
+		    var request = require("request");
+			var url = "http://api.randomuser.me/?gender=female&nat=FR"
+
+			request({
+			    url: url,
+			    json: true
+			}, function (error, response, body) {
+			    if (!error && response.statusCode === 200) {
+			    	var person = body.results[0];
+			    	var charBloc = '<li>';
+			    	charBloc += '<div class="personPicture" style="background:url('+person.picture.large+') no-repeat center center;"></div>';
+			    	charBloc += '<h1>'+person.name.first+" "+person.name.last.toUpperCase()+'</h1>';
+			    	charBloc += '</li>';
+			    	$('#peoples').append(charBloc);
+			        console.log(body.results[0]) 
+			    }
 			});
-			
-		    
 
 		});
-		
-		
-		this.generateChararacter = function(filter,cb){
-			var request = require("request");
-				var url = "http://api.randomuser.me/?gender=female&nat=FR"
-
-				request({
-					url: url,
-					json: true
-				}, function (error, response, body) {
-					if (!error && response.statusCode === 200) {
-						cb(body.results[0]);
-					}
-				});
-		};
+	
 
 		this.rand = function (array) {
 			return array[Math.floor(Math.random()*array.length)];
-		};
+		}
+
+
 	}
 }

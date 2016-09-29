@@ -1,0 +1,22 @@
+#peoples{
+	margin:0;
+	padding:0;
+}
+#peoples li{
+	display:inline-block;
+	list-style-type: none;
+	border:1px solid #cecece;
+	padding:15px;
+}
+
+#peoples li h1{
+	font-size: 14px;
+	text-align: center;
+}
+
+.personPicture{
+	border-radius:100%;
+	width:120px;
+	height:120px;
+	margin:auto;
+}

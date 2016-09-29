@@ -1,4 +1,4 @@
-module.exports = function Application() {
+application =  function Application() {
 	this.hooks = [];
 	
 	this.on = function(name, callback,uid) {
@@ -22,6 +22,7 @@ module.exports = function Application() {
 		$('head').append("<link rel='stylesheet' type='text/css' href='"+url+"'>");
 	};
 	
+
 	this.addPage = function(data){
 		var data = $.extend({
 			id : '0',
@@ -30,7 +31,7 @@ module.exports = function Application() {
 			html : ''
 		},data);
 	
-		$('#tabs > li:eq(0)').append('<li data-tab="'+data.id+'"><i class="fa '+data.icon+'"></i> '+data.title+'</li>');
+		$('#tabs').append('<li data-tab="'+data.id+'"><i class="fa '+data.icon+'"></i> '+data.title+'</li>');
 		var page = $('<div style="display:none;padding:15px;" id="'+data.id+'">'+data.html+'</div>');
 		$('#pages').append(page);
 		return page;
@@ -60,5 +61,28 @@ module.exports = function Application() {
 		chooser.trigger('click'); 
 	};
 	
-	
 };
+
+
+application.rmdir = function (path){
+		var fs = require('fs');
+		console.log("Delete : "+path);
+		  if( fs.existsSync(path) ) {
+			
+			fs.readdirSync(path).forEach(function(file,index){
+				console.log("Read : "+path);
+			  var curPath = path + "/" + file;
+			  if(fs.lstatSync(curPath).isDirectory()) { 
+				application.rmdir(curPath);
+			  } else { 
+				fs.unlinkSync(curPath);
+			  }
+			});
+			fs.rmdirSync(path);
+		  }else{
+			console.log("No existence : "+path);
+		  }
+};
+
+
+module.exports =application;
