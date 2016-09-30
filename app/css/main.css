@@ -75,7 +75,9 @@ a {
   outline: none;
 }
 
-
+#tabs{
+	background:#ffffff;
+}
 #tabs li{
   display:inline-block;
   padding:20px;

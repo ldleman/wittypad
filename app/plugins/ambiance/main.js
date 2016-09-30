@@ -25,15 +25,20 @@ module.exports = {
 		
 		var dir =  __dirname.replace(/\\/g, "/");  
 		console.log('ambiance loaded...');
-		
+		app.css(dir+'/main.css');
 		var plugin = this;
+		
+		$('body').append('<video  id="ambiancePlayer" playsinline muted loop></video>');
 		
 		this.ambiances  =   
 		{
+			"night" : {color : "#007fd5",tags : ['nuit','ville','citée'],video : 'night-city.webm' },
 			"comic" : { color : "#87C540",tags : ['dr(ôo)le','humour','ri(re|iez|e|er)','exclaff(er|e|é|ez)','amus(er|e|é|ez)','comique','absurd(e|ité|ités)'] },
 			"love" : { color : "#F3DBFC",tags : ['amour','passion(s)?','sexe(s)?','embrass(er|e|é|ez)','l(ée)cher'] },
 			"war" : { color : "#222222", background: ['war01.jpg','war02.jpg'], sound: ['war.wav'] ,tags : ['bataille(s|z|r)?','guerre','sang','boucherie(s)?','puissance(s)?','force(s)?','attaque(s|z|r)?'] }
 		};
+		
+	
 		
 		app.on('write',function(data){
 			
@@ -55,9 +60,24 @@ module.exports = {
 				$('body').css('background','url("'+dir+'/background/war01.jpg") no-repeat center center fixed');
 				$('body').css('backgroundSize', 'cover');
 			}
+			
+			if(ambiance.execute!=null){
+				ambiance.execute();
+			}
+			
+			if(ambiance.video!=null){
+				var vid = $("#ambiancePlayer").get(0);
+				$(vid).append('<source src="'+dir+'/video/'+ambiance.video+'" type="video/webm">');
+				vid.play();
+				$("#ambiancePlayer").css('opacity','1');
+			}
+			
+			
 			this.timeout = setTimeout(function(){
 				$('body').css('background-color','#ffffff');
-			},60000);
+				$("#ambiancePlayer").get(0).pause();
+				$("#ambiancePlayer").css('opacity','0');
+			},6000);
 		},
 
 		this.inArray =  function(word, array) {
