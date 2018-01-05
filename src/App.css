@@ -1,0 +1,246 @@
+html,body{
+  height:100%;
+}
+ul,li{
+  margin:0;
+  padding:0;
+  list-style-type:none; 
+}
+h1,h2,h3,h4,h5{
+  margin:0;
+  padding:0;
+  font-weight: 200;
+}
+#root{
+  height:100%;
+}
+.app {
+  text-align: center;
+  font-family: 'Lato';
+  height:100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.header {
+  background-color: #222;
+  color: #ffffff;
+  flex: 0 0 60px;
+}
+
+.logo{
+  float:left;
+  font-size: 30px;
+  transform: rotate(20deg);
+  padding:15px;
+  margin-left: 5px;
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+  text-decoration: none;
+  color:#ffffff;
+}
+.logo:hover{
+  transform: rotate(0deg);
+  transform: scale(1.1);
+}
+
+.workspace,.home{
+  width:100%;
+  position:relative;
+  flex: 1 0 auto;
+  display: none;
+}
+
+.home{
+  display: block;
+  padding:20px;
+}
+/*Sidebar*/
+
+.sideleft{
+  width:200px;
+  position:absolute;
+  left:0;
+  background-color: #222323;
+  height:100%;
+  color:#6c7477;
+  top:0;
+}
+.sideleft > div > h3.title{
+   font-size: 20px;
+    background-color: #333333;
+    height: 39px;
+    padding-top: 7px;
+    box-sizing: border-box;
+    font-weight: bolder;
+}
+
+.sideleft .menu > li{
+  padding:20px;
+  text-align: left;
+  font-weight: bold;
+  cursor:pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.sideleft .menu > li > i{
+  font-size:16px;
+  margin-right: 5px;
+  transition: transform 0.2s ease-in-out;
+}
+.sideleft .menu > li:hover{
+  color:#ffffff;
+  background-color:#303131; 
+}
+.sideleft .menu > li:hover i{
+  transform: rotate(190deg);
+}
+
+/*Toolbar*/
+.editor{
+  margin:0 0px 0 200px;
+  height:100%;
+  box-shadow:0 0px 10px rgba(0,0,0,0.5);
+}
+
+.editor > div{
+  height:100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.editor-tab{
+  background-color: #333333;
+  margin:0;
+  color:#6c7477;
+  height:40px;
+}
+.editor-tab > li{
+  padding:10px;
+  box-shadow: 1px 0 10px rgba(0,0,0,0.5);
+  float: left;
+  cursor:pointer;
+}
+.editor-toolbar{
+  background-color: #dedede;
+  margin:0;
+}
+
+.editor-toolbar li{
+  display: inline-block;
+  padding:10px;
+  cursor: pointer;
+  color:#666;
+  background-color: #dedede;
+  transition: background 0.2s ease-in-out;
+}
+.editor-toolbar li:hover{
+  background-color: #ffffff;
+}
+
+.editor-area{
+  outline: none;
+  flex: 1 0 auto;
+  font-family: 'Calibri','Open Sans','Lato';
+  padding:15px;
+  text-align: left;
+  letter-spacing: 0.6px;
+  line-height: 25px;
+  color:#555555;
+  font-size:18px;
+}
+
+/*Login*/
+.login{
+  color:#6c7477;
+}
+
+
+
+.btnLoginForm{
+  float:right;
+  cursor: pointer;
+  padding:24px;
+  transition: color 0.2s ease-in-out; 
+}
+.btnLoginForm:hover{
+   color:#ffffff;
+}
+
+.loginForm{
+  position:absolute;
+  right: 0;
+  top:65px;
+  padding:15px;
+  width: 200px;
+  background-color: #000000;
+  z-index: 1;
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.login input[type="text"],.login input[type="password"]{
+  background-color: #000000;
+  color:#ffffff;
+  border:none;
+  padding:5px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 3px solid #6c7477;
+  margin-bottom: 10px;
+  transition: border-color 0.2s ease-in-out, border-radius 0.5s ease-in-out;
+}
+.login input[type="text"]:focus,.login input[type="password"]:focus{
+  border-color:  #1db2f7;
+  border-radius: 6px 0 6px 0;
+  outline: none;
+}
+
+.login .btn{
+  background-color: #1db2f7;
+  padding:5px;
+  border-radius: 2px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  box-shadow:  0 0 10px rgba(0,0,0,0.5);
+  transition: transform 0.15s linear;
+  color:#ffffff;
+}
+
+.login .btn:hover{
+  transform: scale(1.05);
+}
+
+.loginCard{
+  float:right;
+  padding:16px;
+  font-weight: bold;
+  font-size : 14px;
+}
+.loginCard > .btnLeave{
+  color:#ffffff;
+  display: inline-block;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.loginCard .avatar{
+  border-radius: 100%;
+  background-color: #aeaeae;
+  width:30px;
+  height:30px;
+  vertical-align: middle;
+}
+
+
+/*TOOLS*/
+
+.btn{
+  cursor: pointer;
+}
+
+.clear{
+  clear:both;
+}
+
+
